@@ -7,4 +7,5 @@ import com.isansc.genericadapterpoc.model.EdgeItem
 interface GenericBinder {
     fun isBinderFor(): Class<out EdgeItem>
     fun createViewHolder(parent: ViewGroup): GenericViewHolder
+    fun isan(parent: ViewGroup): GenericViewHolder
 }

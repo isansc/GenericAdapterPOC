@@ -8,7 +8,8 @@ import com.isansc.genericadapterpoc.model.EdgeItem
 
 class GenericAdapter(
     items: List<EdgeItem> = listOf(),
-    private val itemBinderList: List<GenericBinder>
+    private val itemBinderList: List<GenericBinder>,
+    private val insertDinamicItemList: List<InsertDynamicItem>
 ) : RecyclerView.Adapter<GenericViewHolder>() {
     private val itemList: ArrayList<EdgeItem> = ArrayList(items)
 
@@ -44,5 +45,9 @@ class GenericAdapter(
 
 
         notifyDataSetChanged() // EU SEI
+    }
+
+    private fun insertDynamicItems() {
+        jhkasjdhkasjdh
     }
 }
