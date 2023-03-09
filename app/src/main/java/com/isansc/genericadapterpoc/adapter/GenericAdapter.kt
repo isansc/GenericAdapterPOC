@@ -7,9 +7,10 @@ import com.isansc.genericadapterpoc.holder.GenericViewHolder
 import com.isansc.genericadapterpoc.model.EdgeItem
 
 class GenericAdapter(
-    val itemList: List<EdgeItem>,
-    val itemBinderList: List<GenericBinder>
+    items: List<EdgeItem> = listOf(),
+    private val itemBinderList: List<GenericBinder>
 ) : RecyclerView.Adapter<GenericViewHolder>() {
+    private val itemList: ArrayList<EdgeItem> = ArrayList(items)
 
     override fun getItemViewType(position: Int): Int {
         val item = itemList[position]
@@ -31,5 +32,17 @@ class GenericAdapter(
 
     override fun getItemCount(): Int {
         return itemList.size
+    }
+
+    fun updateItems(items: List<EdgeItem>) {
+        itemList.clear()
+        itemList.addAll(items)
+
+
+
+
+
+
+        notifyDataSetChanged() // EU SEI
     }
 }
