@@ -12,6 +12,6 @@ class PacedItemViewHolder(private val binding: ViewPacedItemBinding) :
         item as PacedItem
         binding.txtTitle.setText(item.title)
         binding.txtContent.setText(item.text)
-        binding.root.setBackgroundColor(Color.parseColor(item.color))
+        binding.grpContainer.setBackgroundColor(Color.parseColor(item.color))
     }
 }
