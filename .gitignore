@@ -1,6 +1,122 @@
+package-lock.json
+
+# OSX
+#
+.DS_Store
+
+# Xcode
+#
+build/
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata
+*.xccheckout
+*.moved-aside
+DerivedData
+*.hmap
+*.ipa
+*.xcuserstate
+project.xcworkspace
+
+# Android/IntelliJ
+#
+build/
+.idea
+.gradle
+local.properties
+*.iml
+android/captures/
+android/arch/
+android/support/
+/com/
+
+# Eclipse project files
+.classpath
+.project
+.settings/
+
+# node.js
+#
+node_modules/
+android/node_modules/
+npm-debug.log
+yarn-error.log
+
+# DECO
+.deco
+
+#VSCode
+jsconfig.json
+
+# Fabric
+#
+com_crashlytics_export_strings.xml
+# BUCK
+buck-out/
+\.buckd/
+android/keystores/debug.keystore
+artifacts
+crashlytics-build.properties
+
+# General
+*.pid
+/test.result.*
+/android/test.result.*
+.tern-port
+
+# React-native generated assets
+/android/app/src/main/assets/index.android.bundle
+/android/app/src/main/res/**/js_*.png
+svg/out
+
+coverage
+*.keystore
+
+# fastlane
+#
+# It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the
+# screenshots whenever they are needed.
+# For more information about the recommended setup visit:
+# https://docs.fastlane.tools/best-practices/source-control/
+
+*/fastlane/report.xml
+*/fastlane/Preview.html
+*/fastlane/screenshots
+
+ios/Pods/Target\ Support\ Files/**/**/*.*.xcconfig
+
+# Carthage
+ios/Carthage/Checkouts
+ios/Carthage/
+ios/Pods/
+
+# SourceMap
+# Bundle artifact
+*.jsbundle
+*.jsbundle.meta
+sourceMap/sourcemap-android.js
+sourceMap/sourcemap-ios.js
+tmp/
+
+# Chaves do Android
+app/g1.jks
+app/ge.jks
+app/gshow.jks
+app/keystore.properties
+GooglePlayAPI_Key.json
+
+# VSCode
+.vscode
+\.dir-locals\.el
+
 # Built application files
 *.apk
-*.aar
 *.ap_
 *.aab
 
@@ -14,8 +130,7 @@
 bin/
 gen/
 out/
-#  Uncomment the following line in case you need and you don't have the release build type files in your app
-# release/
+android/ktlint
 
 # Gradle files
 .gradle/
@@ -44,11 +159,10 @@ captures/
 .idea/assetWizardSettings.xml
 .idea/dictionaries
 .idea/libraries
-# Android Studio 3 in .gitignore file.
 .idea/caches
+# Android Studio 3 in .gitignore file.
+.idea/caches/build_file_checksums.ser
 .idea/modules.xml
-# Comment next line if keeping position of elements in Navigation Editor is relevant for you
-.idea/navEditor.xml
 
 # Keystore files
 # Uncomment the following lines if you do not want to check your keystore files in.
@@ -57,7 +171,6 @@ captures/
 
 # External native build folder generated in Android Studio 2.2 and later
 .externalNativeBuild
-.cxx/
 
 # Google Services (e.g. APIs or Firebase)
 # google-services.json
