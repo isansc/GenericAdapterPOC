@@ -6,15 +6,14 @@ import com.isansc.genericadapterpoc.adapter.GenericAdapter
 import com.isansc.genericadapterpoc.binder.GenericBinder
 import com.isansc.genericadapterpoc.binder.InsertedItemBinder
 import com.isansc.genericadapterpoc.binder.MainItemBinder
+import com.isansc.genericadapterpoc.binder.PacedItemBinder
 import com.isansc.genericadapterpoc.databinding.ActivityMainBinding
-import com.isansc.genericadapterpoc.model.EdgeItem
-import com.isansc.genericadapterpoc.model.InsertedItem
-import com.isansc.genericadapterpoc.model.MainItem
+import com.isansc.genericadapterpoc.model.*
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
-    private val adapter = GenericAdapter(getItems(), getBinders())
+    private val adapter = GenericAdapter(getItems(), getBinders(), getPacingConfigs())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,6 +60,12 @@ class MainActivity : AppCompatActivity() {
         return items
     }
 
+    private fun getPacingConfigs(): List<PacingConfig> {
+        return listOf<PacingConfig>(
+            SingleItemPacingConfig(PacedItem("SinglePacedItem", "SinglePacedItem Text"))
+        )
+    }
+
     private fun getBinders(): List<GenericBinder> {
         val binders = arrayListOf<GenericBinder>()
 
@@ -70,6 +75,10 @@ class MainActivity : AppCompatActivity() {
 
         binders.add(
             InsertedItemBinder()
+        )
+
+        binders.add(
+            PacedItemBinder()
         )
 
         return binders

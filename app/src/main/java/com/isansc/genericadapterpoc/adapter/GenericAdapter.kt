@@ -5,11 +5,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.isansc.genericadapterpoc.binder.GenericBinder
 import com.isansc.genericadapterpoc.holder.GenericViewHolder
 import com.isansc.genericadapterpoc.model.EdgeItem
+import com.isansc.genericadapterpoc.model.PacingConfig
 
 class GenericAdapter(
     items: List<EdgeItem> = listOf(),
     private val itemBinderList: List<GenericBinder>,
-    private val insertDinamicItemList: List<InsertDynamicItem>
+    private val pacingConfigList: List<PacingConfig> = listOf()
 ) : RecyclerView.Adapter<GenericViewHolder>() {
     private val itemList: ArrayList<EdgeItem> = ArrayList(items)
 
@@ -37,17 +38,34 @@ class GenericAdapter(
 
     fun updateItems(items: List<EdgeItem>) {
         itemList.clear()
-        itemList.addAll(items)
-
-
-
-
-
+        itemList.addAll(insertDynamicItems(items))
 
         notifyDataSetChanged() // EU SEI
     }
 
-    private fun insertDynamicItems() {
-        jhkasjdhkasjdh
+    private fun insertDynamicItems(items: List<EdgeItem>): List<EdgeItem> {
+        val itemsTotalList = ArrayList(items)
+
+        if (pacingConfigList.size > 0) {
+            var pacingIndex = 0
+            var itemIndex = 0
+
+            while (pacingIndex < pacingConfigList.size && itemIndex < itemsTotalList.size) {
+                val currentPacing = pacingConfigList[pacingIndex]
+
+                itemIndex += currentPacing.start
+                var currentPacingOccurrence = 0
+
+                while (itemIndex < itemsTotalList.size && (currentPacing.occurrences == PacingConfig.INFINITE || currentPacingOccurrence < currentPacing.occurrences)) {
+                    itemsTotalList.add(itemIndex, currentPacing.item)
+                    currentPacingOccurrence++
+                    itemIndex += currentPacing.pacing
+                }
+
+                pacingIndex++
+            }
+        }
+
+        return itemsTotalList
     }
 }
