@@ -59,7 +59,7 @@ class GenericAdapter(
                 while (itemIndex < itemsTotalList.size && (currentPacing.occurrences == PacingConfig.INFINITE || currentPacingOccurrence < currentPacing.occurrences)) {
                     itemsTotalList.add(itemIndex, currentPacing.item)
                     currentPacingOccurrence++
-                    itemIndex += currentPacing.pacing
+                    itemIndex += currentPacing.pacing + 1
                 }
 
                 pacingIndex++

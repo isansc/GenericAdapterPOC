@@ -27,14 +27,14 @@ class MainActivity : AppCompatActivity() {
 
         val totalItems = ArrayList<EdgeItem>()
         totalItems.addAll(getItems())
-        totalItems.addAll(getInsertedItems())
+//        totalItems.addAll(getInsertedItems())
 
         adapter.updateItems(totalItems)
     }
 
     private fun getItems(): List<MainItem> {
         val items = arrayListOf<MainItem>()
-        for (i in 0..20) {
+        for (i in 0..50) {
             items.add(
                 MainItem(
                     "MainItem Title $i",
@@ -61,8 +61,29 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getPacingConfigs(): List<PacingConfig> {
-        return listOf<PacingConfig>(
-            SingleItemPacingConfig(PacedItem("SinglePacedItem", "SinglePacedItem Text"))
+//        return listOf(
+//            SingleItemPacingConfig(PacedItem("SinglePacedItem", "SinglePacedItem Text", "#00FF00")),
+//            SingleItemPacingConfig(PacedItem("SinglePacedItem", "SinglePacedItem Text", "#22FF00")),
+//            PacingConfig(PacedItem("SinglePacedItem", "SinglePacedItem Text", "#00FF22"), 5, 3, 5),
+//            PacingConfig(PacedItem("SinglePacedItem", "SinglePacedItem Text", "#22FF22"), 3, 5, 2),
+//            PacingConfig(PacedItem("SinglePacedItem", "SinglePacedItem Text", "#CCCCCC"), 3, 7, 4),
+//            PacingConfig(PacedItem("SinglePacedItem", "SinglePacedItem Text", "#00FF22"), 3, 10)
+//
+//        )
+
+//        // PosJogo
+//        return listOf(
+//            PacingConfig(PacedItem("UnderSubTitle", "SinglePacedItem Text", "#00FF22"), 2, 0, 1),
+//            PacingConfig(PacedItem("InfinitePacedItem", "SinglePacedItem Text", "#22FF22"), 3, 3)
+//        )
+        // Lance a Lance
+        return listOf(
+            PacingConfig(PacedItem("Publicidade Inicial", "PacedItem Text", "#00FF00"), 0, 0, 1),
+            PacingConfig(PacedItem("Transmission", "PacedItem Text", "#CCCCCC"), 0, 0, 1),
+            PacingConfig(PacedItem("Penalty", "PacedItem Text", "#00FFFF"), 0, 0, 1),
+            PacingConfig(PacedItem("Publicidade 3", "PacedItem Text", "#FFFF00"), 3, 0, 1),
+            PacingConfig(PacedItem("Publicidade 5", "PacedItem Text", "#222222"), 5, 0, 1),
+            PacingConfig(PacedItem("Publicidade 10", "PacedItem Text", "#FF00FF"), 10, 10)
         )
     }
 
